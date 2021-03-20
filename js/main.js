@@ -1,16 +1,38 @@
 var info = {
-    "name": "Devendra Mewada",
-    "title":"Backend Developer",
-    "email": "mewadadevender@gmail.com",
-    "phone_number":"+918819889533",
-    "address":"Indore, Madhya Pradesh, India",
-    "about_me":"I'm Backend developer and a choosy person. I love to play cricket and consuming digital media. I enjoy being outdoor with my friends. When i have time to spare I love to watch comedy shows and often I am very moody about spending my time",
-    "instagram":"#",
-    "linkedin": "https://www.linkedin.com/in/devender-mewada-585070164",	
-    "twitter":"#",
-    "github":"https://github.com/devendra-jit",
-
+	"name": "Devendra Mewada",
+	"title": "Backend Developer",
+	"email": "mewadadevender@gmail.com",
+	"address": "Indore, Madhya Pradesh, India",
+	"about_me": "I'm Backend developer and a choosy person. I love to play cricket and consuming digital media. I enjoy being outdoor with my friends. When i have time to spare I love to watch comedy shows and often I am very moody about spending my time",
+	"instagram": "#",
+	"linkedin": "https://www.linkedin.com/in/devender-mewada-585070164",
+	"twitter": "#",
+	"github": "https://github.com/devendra-jit",
+	"work_experience": [
+		{
+			"work_title": "NodeJs Developer",
+			"company_name": "",
+			"company_link": "#",
+			"description": "I started my programming journey there as a beginner in a company.I have worked with multiple databases and technologies there. There I worked with technologies like NodeJS, msSQL, mongoDB etc and There I have also worked with core PHP.",
+		},
+		{
+			"work_title": "Backend Developer",
+			"company_name": "JIT Inspire Pvt Ltd",
+			"company_link": "https://www.jitinspire.com/",
+			"description": "I switched my company and joined a startup to work there as a backend developer. I worked with NodeJS, Serverless and golang there. I have worked on multiple projects there, and I have learned a lot there. ",
+		}
+	],
+	"education":[
+		{
+			"course_title":"Bachelors Degree",
+			"institute_name":"Radharaman Institute of Technology and Science, Bhopal 2013 - 2017",
+			"course_name":"I did my bachelor's degree in this institute. My course was Electronics and Communication in B.E.",
+		}
+	]
 }
+var workHTMLTemplate="";
+var educationTemplate="";
+
 ; (function () {
 
 		'use strict';
@@ -143,56 +165,88 @@ var info = {
 
 		var getDetails = () => {
 
-					var name = document.getElementsByClassName("name");
-					var title = document.getElementsByClassName("title");
-					var phone = document.getElementsByClassName("phone");
-					var email = document.getElementsByClassName("email");
-					var address = document.getElementsByClassName("address");
-					var github = document.getElementsByClassName("github")
-					var linkedin = document.getElementsByClassName("linkedin")
-					var twitter = document.getElementsByClassName("twitter")
-					var instagram = document.getElementsByClassName("instagram")
-					var footerEmail = document.getElementsByClassName("footer-email");
-					var aboutMe = document.getElementsByClassName("about-me");
+			var name = document.getElementsByClassName("name");
+			var title = document.getElementsByClassName("title");
+			var email = document.getElementsByClassName("email");
+			var address = document.getElementsByClassName("address");
+			var github = document.getElementsByClassName("github")
+			var linkedin = document.getElementsByClassName("linkedin")
+			var twitter = document.getElementsByClassName("twitter")
+			var instagram = document.getElementsByClassName("instagram")
+			var footerEmail = document.getElementsByClassName("footer-email");
+			var aboutMe = document.getElementsByClassName("about-me");
+			var work = info.work_experience;
+			var educationInfo = info.education;
 
-					console.log(name)
+			for (var i = 0; i < name.length; i++) {
+				name.item(i).innerHTML = info.name;
+			}
+			title.item(0).innerHTML = info.title;
+			email.item(0).innerHTML = info.email;
+			address.item(0).innerHTML = info.address;
+			for (var i = 0; i < github.length; i++) {
+				github.item(i).href = info.github;
+			}
+			for (var i = 0; i < linkedin.length; i++) {
+				linkedin.item(i).href = info.linkedin;
+			}
+			for (var i = 0; i < twitter.length; i++) {
+				twitter.item(i).href = info.twitter;
+			}
+			for (var i = 0; i < instagram.length; i++) {
+				instagram.item(i).href = info.instagram;
+			}
+			footerEmail.item(0).innerHTML = info.email;
+			footerEmail.item(0).href = "mailto:" + info.email;
+			aboutMe.item(0).innerHTML = info.about_me;
 
-					for(var i=0;i<name.length;i++)
-					{
-						name.item(i).innerHTML = info.name;
-					}
-					title.item(0).innerHTML = info.title;
-					phone.item(0).innerHTML = info.phone_number;
-					email.item(0).innerHTML = info.email;
-					address.item(0).innerHTML = info.address;
-					for(var i=0;i<github.length;i++)
-					{
-						github.item(i).href = info.github;
-					}
-					for(var i=0;i<linkedin.length;i++)
-					{
-						linkedin.item(i).href = info.linkedin;
-					}
-					for(var i=0;i<twitter.length;i++)
-					{
-						twitter.item(i).href = info.twitter;
-					}
-					for(var i=0;i<instagram.length;i++)
-					{
-						instagram.item(i).href = info.instagram;
-					}
-					footerEmail.item(0).innerHTML = info.email;
-					footerEmail.item(0).href = "mailto:"+info.email;
-					aboutMe.item(0).innerHTML = info.about_me;
+			for (let workPlaces = 0; workPlaces < work.length;workPlaces++) {
+				workHTMLTemplate += `<li class="timeline-unverted work-list-items animate-box" >
+				<div class="timeline-badge"><i class="icon-suitcase"></i></div>
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h3 class="timeline-title"> ${work[workPlaces].work_title} </h3><span class="company"><a href=${work[workPlaces].company_link} id="company-link">${work[workPlaces].company_name}</a></span>
+
+					</div>
+					<div class="timeline-body" style="color: white;">
+						<p>
+							${work[workPlaces].description}
+						</p>
+					</div>
+				</div>
+				</li>`
+			}
 
 
-
-
+			$("#resume_details").append(workHTMLTemplate);
+			var educationHeading = `<li class="timeline-heading text-center animate-box" ">
+			<div><h3>Education</h3></div>
+		</li>`
+		$("#resume_details").append(educationHeading);
+			
+			for(var edu=0;edu<educationInfo.length;edu++)
+			{
+				educationTemplate+=`<li class="timeline-inverted animate-box >
+				<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h3 class="timeline-title">${educationInfo[0].course_title}</h3>
+						<span class="company">${educationInfo[0].institute_name}</span>
+					</div>
+					<div class="timeline-body" style="color: white;">
+						<p>
+						${educationInfo[0].course_name}
+						</p>
+					</div>
+				</div>
+			</li>`
+			}
+			$("#resume_details").append(educationTemplate);
 
 
 
 		}
-				
+
 
 		// Loading page
 		var loaderPage = function () {
@@ -201,7 +255,7 @@ var info = {
 
 
 		$(function () {
-			contentWayPoint();
+			
 			goToTop();
 
 			loaderPage();
@@ -209,7 +263,9 @@ var info = {
 			parallax();
 			// pieChart();
 			getDetails();
+			contentWayPoint();
 			skillsWayPoint();
+
 		});
 
 

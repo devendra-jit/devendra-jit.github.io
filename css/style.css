@@ -60,6 +60,11 @@ a:hover, a:active, a:focus {
   outline: none;
   text-decoration: none;
 }
+#company-link{
+  color: #fff;
+  font-weight: bolder;
+  font-size: large;
+}
 
 p {
   margin-bottom: 30px;
@@ -592,9 +597,9 @@ h1, h2, h3, h4, h5, h6, figure {
 .company {
   display: block;
   margin-bottom: 20px;
-  font-size: 16px;
-  font-weight: normal;
-  color: #533e3e;
+  font-size: large;
+  font-weight: bolder;
+  color: #fff;
 }
 
 .timeline-body > p,
