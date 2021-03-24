@@ -10,17 +10,18 @@ var info = {
 	"github": "https://github.com/devendra-jit",
 	"work_experience": [
 		{
+			"work_title": "Backend Developer",
+			"company_name": "JIT Inspire Pvt Ltd",
+			"company_link": "https://www.jitinspire.com/",
+			"description": "I switched my company and joined a startup to work there as a backend developer. I worked with NodeJS, Serverless and golang there. I have worked on multiple projects there, and I have learned a lot there. ",
+		},
+		{
 			"work_title": "NodeJs Developer",
 			"company_name": "",
 			"company_link": "#",
 			"description": "I started my programming journey there as a beginner in a company.I have worked with multiple databases and technologies there. There I worked with technologies like NodeJS, msSQL, mongoDB etc and There I have also worked with core PHP.",
 		},
-		{
-			"work_title": "Backend Developer",
-			"company_name": "JIT Inspire Pvt Ltd",
-			"company_link": "https://www.jitinspire.com/",
-			"description": "I switched my company and joined a startup to work there as a backend developer. I worked with NodeJS, Serverless and golang there. I have worked on multiple projects there, and I have learned a lot there. ",
-		}
+		
 	],
 	"education":[
 		{
@@ -226,7 +227,7 @@ var educationTemplate="";
 			
 			for(var edu=0;edu<educationInfo.length;edu++)
 			{
-				educationTemplate+=`<li class="timeline-inverted animate-box >
+				educationTemplate+=`<li class="timeline-inverted animate-box" >
 				<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
 				<div class="timeline-panel">
 					<div class="timeline-heading">
